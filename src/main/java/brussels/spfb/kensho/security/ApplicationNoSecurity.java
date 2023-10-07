@@ -1,4 +1,4 @@
-package brussels.spfb.kensho;
+package brussels.spfb.kensho.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

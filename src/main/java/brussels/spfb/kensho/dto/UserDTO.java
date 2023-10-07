@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 public class UserDTO {
 
-    private Long id;
+    protected Long id;
+    protected String userName;
+    protected String password;
 
 }

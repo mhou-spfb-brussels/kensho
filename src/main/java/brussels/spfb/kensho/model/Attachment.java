@@ -42,4 +42,7 @@ public class Attachment {
     @Column(nullable = false)
     protected Long document;
 
+    @Column(nullable = false)
+    protected Boolean archived;
+
 }

@@ -4,10 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-
 import brussels.spfb.kensho.dto.DocumentDTO;
 import de.qaware.tools.collectioncacheableforspring.CollectionCacheable;
 import lombok.NonNull;

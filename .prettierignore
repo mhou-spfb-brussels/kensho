@@ -1,0 +1,8 @@
+.config
+.build
+.cache
+.upm
+.tmp
+.git
+replit.nix
+.replit

@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 public class UserRoleDTO {
 
-    private Long id;
+    protected Long id;
+    protected UserDTO user;
+    protected Long role;
 
 }

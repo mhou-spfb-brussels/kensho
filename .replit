@@ -1,5 +1,5 @@
-compile = "mvn install -DskipTests"
-run = "mvn spring-boot:run"
+compile = "./mvnw install -DskipTests"
+run = "./mvnw spring-boot:run"
 hidden = ["**/*.class"]
 
 [packager]
@@ -58,6 +58,6 @@ classPaths = ["."]
 mainClass = "Main"
 
 [deployment]
-build = ["sh", "-c", "mvn install -DskipTests"]
-run = ["sh", "-c", "mvn spring-boot:run"]
+build = ["sh", "-c", "./mvnw install -DskipTests"]
+run = ["sh", "-c", "./mvnw spring-boot:run"]
 deploymentTarget = "cloudrun"

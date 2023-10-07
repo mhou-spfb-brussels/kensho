@@ -7,6 +7,6 @@ import lombok.Data;
 @Builder
 public class PaymentRequestDTO {
 
-    private Long id;
+    protected Long id;
 
 }

@@ -7,6 +7,6 @@ import lombok.Data;
 @Builder
 public class FolderDTO {
 
-    private Long id;
+    protected Long id;
 
 }
