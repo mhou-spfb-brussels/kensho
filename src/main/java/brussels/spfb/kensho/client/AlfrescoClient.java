@@ -13,16 +13,19 @@ import lombok.NonNull;
 @Component
 public class AlfrescoClient {
 
+    // FIXME Stub
     @Cacheable(cacheNames = "documents", unless = "#result == null")
     public Optional<DocumentDTO> getDocumentById(@NonNull Long id) {
         return Optional.of(DocumentDTO.builder().id(id).build());
     }
 
+    // FIXME Stub
     @Cacheable("documents")
     @CollectionCacheable("documents")
     public Map<Long, Optional<DocumentDTO>> getDocumentsByIds(@NonNull List<Long> ids) {
         HashMap<Long, Optional<DocumentDTO>> result = new HashMap<>();
-        ids.stream().forEach(id -> result.put(id, Optional.of(DocumentDTO.builder().id(id).build())));
+        ids.stream()
+                .forEach(id -> result.put(id, Optional.of(DocumentDTO.builder().id(id).build())));
         return result;
     }
 

@@ -20,7 +20,7 @@ public class TrombiUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        UserDTO user = trombiClient.getUserByUserName(userName).orElse(null);
+        UserDTO user = trombiClient.getUserByUserName(userName, false).orElse(null);
         if (user == null) {
             return null;
         }
