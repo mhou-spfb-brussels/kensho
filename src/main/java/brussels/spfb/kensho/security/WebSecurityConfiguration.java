@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@ImportResource("classpath:spring-security.xml")
+// @ImportResource("classpath:spring-security.xml")
 public class WebSecurityConfiguration {
 
     @Autowired
