@@ -1,9 +1,9 @@
 package brussels.spfb.kensho.security;
 
+import static org.springframework.security.config.Customizer.withDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,14 +13,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-// @ImportResource("classpath:spring-security.xml")
 public class WebSecurityConfiguration {
 
-    @Autowired
-    private TrombiAuthenticationProvider trombiAuthenticationProvider;
-
     @Bean
-    AuthenticationManager authManager(HttpSecurity http) throws Exception {
+    AuthenticationManager authenticationManager(
+            @Autowired TrombiAuthenticationProvider trombiAuthenticationProvider, HttpSecurity http)
+            throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.authenticationProvider(trombiAuthenticationProvider);
@@ -29,8 +27,9 @@ public class WebSecurityConfiguration {
 
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+                .httpBasic(withDefaults());
         return http.build();
     }
 

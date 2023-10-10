@@ -1,7 +1,6 @@
 package brussels.spfb.kensho.model;
 
 import org.hibernate.envers.Audited;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +26,8 @@ public abstract class FollowUp {
     @JoinColumn(nullable = false)
     protected Flow flow;
 
-    @Column(nullable = true)
+    @ManyToOne
+    @JoinColumn(nullable = true)
     protected FollowUp parent;
 
     @Column(nullable = false)
