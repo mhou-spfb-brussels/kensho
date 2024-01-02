@@ -3,7 +3,6 @@ package brussels.spfb.kensho.controller;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +17,11 @@ import lombok.NonNull;
 @RequestMapping("api/users")
 public class UserController {
 
-    @Autowired
     protected TrombiClient trombiClient;
+
+    public UserController(TrombiClient trombiClient) {
+        this.trombiClient = trombiClient;
+    }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Long, Optional<UserDTO>>> getUsersByIds(

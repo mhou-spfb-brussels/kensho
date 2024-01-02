@@ -1,6 +1,5 @@
 package brussels.spfb.kensho.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +14,11 @@ import lombok.NonNull;
 @RequestMapping("api/followups")
 public class FollowUpController {
 
-    @Autowired
     protected FollowUpRepository followUpRepository;
+
+    public FollowUpController(FollowUpRepository followUpRepository) {
+        this.followUpRepository = followUpRepository;
+    }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FollowUp> getFollowUpById(@NonNull @PathVariable Long id) {

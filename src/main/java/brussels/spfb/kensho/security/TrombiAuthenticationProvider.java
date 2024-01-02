@@ -1,6 +1,5 @@
 package brussels.spfb.kensho.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,8 +13,11 @@ import brussels.spfb.kensho.dto.UserDTO;
 @Component
 public class TrombiAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
     protected TrombiClient trombiClient;
+
+    public TrombiAuthenticationProvider(TrombiClient trombiClient) {
+        this.trombiClient = trombiClient;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication)

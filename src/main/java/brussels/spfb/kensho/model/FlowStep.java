@@ -30,4 +30,6 @@ public class FlowStep {
     @Column(nullable = false)
     protected Integer order;
 
+    protected String condition;
+
 }
